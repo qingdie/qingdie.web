@@ -50,6 +50,7 @@ module.exports = new(function() {
         if (this.env == 'dev') {
             code += `\r\ndocument.write('<script src="/script/plugin/vconsole.min.js"></script>')`;
         }
+        code+='console.log("%c项目框架github：https://github.com/qingdie/qingdie.web","color:red")';
         fs.writeFileSync(self.outroot + path + self.jsname, code, 'utf8');
     };
     this.getjs = async (path, opt) => {
