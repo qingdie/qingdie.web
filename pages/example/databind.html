@@ -1,0 +1,24 @@
+{{block 'title'}}
+<title>数据绑定</title>
+{{/block}}
+<div class="page">
+    <div style="padding: 20px">
+        绑定数据： {{name}} {{user.id}}
+        <div style="height: 80px;">
+            <input class="weui-input" type="text" value="{{name}}">
+        </div>
+        mode实时数据数据： {{value}}
+        <div style="height: 80px;">
+            <input class="weui-input" type="text" wx:model="value" placeholder="请输入数据">
+        </div>
+        <a class="weui-btn weui-btn_primary" bindtap="esetdata">设置数据</a>
+        <a class="weui-btn weui-btn_primary" bindtap="esetdata1">设置数据1</a>
+        <a class="weui-btn weui-btn_primary" bindtap="ehide"> {{isshow?'点击移除':'点击显示'}}</a>
+        <div wx:show="{{isshow}}">
+           显示测试
+        </div>
+        <div wx:if="{{isshow}}">
+            输出测试
+        </div>
+    </div>
+</div>

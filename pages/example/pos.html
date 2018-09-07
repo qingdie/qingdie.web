@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta content="telephone=no" name="format-detection" />
+    <title>地理定位</title>
+    <link href="/css/app.css" rel="stylesheet" />
+</head>
+<body style="background: #fff;">
+    <div class="page">
+        <div style="padding: 20px">
+            <div style="padding: 10px;">定位顺序：微信定位、h5定位、浏览器ip定位</div>
+            <a class="weui-btn weui-btn_primary" id="h5pos">h5定位 (qq地图纠偏)</a>
+            <a class="weui-btn weui-btn_primary" id="qqippos">qqip定位</a>
+            <a class="weui-btn weui-btn_primary" id="wxinit">微信初始化</a>
+            <a class="weui-btn weui-btn_primary" id="wxpos">微信定位</a>
+            <div id="log">
+               点击 vConsole查看
+    
+            </div>
+        </div>
+    </div>
+    <script src="/script/app.js"></script>
+    <script src="//map.qq.com/api/js?v=2.exp&libraries=convertor&key=ATLBZ-2TNAU-UD6V3-BRDZM-5Q7N2-PJFXL&callback=qqcb"></script>
+    <script>
+        window.qqcb=function(){};
+        $('#h5pos').tap(function () {
+            api.device.h5Location(function (res) {
+                console.log('h5定位结果：');
+                console.log(res);
+            });
+        });
+        $('#qqippos').tap(function () {
+            api.device.qqipLocation(function (res) {
+                console.log('qqippos定位结果：');
+                console.log(res);
+            });
+        });
+        $('#wxpos').tap(function () {
+            api.device.wxLocation(function (res) {
+                console.log('wxpos定位结果：');
+                console.log(res);
+            });
+        });
+        $('#wxinit').tap(function () {
+            api.net.ajaxjson('/account/Wxjs', { url: window.location.href.split('#')[0] }, function (r) {
+                r.data.debug = false;
+                r.data.jsApiList = ['checkJsApi', 'onMenuShareTimeline', 'onMenuShareAppMessage', 'hideMenuItems', 'showMenuItems', 'hideAllNonBaseMenuItem', 'showAllNonBaseMenuItem', 'chooseImage', 'previewImage', 'getNetworkType', 'openLocation', 'getLocation', 'hideOptionMenu', 'showOptionMenu', 'closeWindow', 'scanQRCode', 'chooseWXPay'];
+                window.wx.config(r.data);
+                window.wx.error(function (res) {
+                    api.msg.alert('请重新打开网页并授权：' + JSON.stringify(res));
+                });
+                console.log('微信初始化');
+                window.wx.ready(function () {
+                    console.log('微信初始化完成');
+                });
+            }, { visible: false });
+        });
+    </script>
+</body>
+</html>

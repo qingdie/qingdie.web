@@ -1,0 +1,23 @@
+{{block 'title'}}
+<title>自动播放音乐</title>
+{{/block}}
+<div class="page">
+    <header class="api-nav">
+        <a class="app-back"> &lt;</a>
+        <h1>自动播放音乐</h1>
+    </header>
+    <div style="padding: 20px">
+        <a class="weui-btn weui-btn_primary" id="audio-stop">停止音乐</a>
+    </div>
+    <div id="log">
+
+    </div>
+</div>
+{{block 'footer'}}
+<script>
+    api.device.playAudio('../../res/music.mp3');
+    $('#audio-stop').tap(function () {
+        api.device.stopPlay();
+    });
+</script>
+{{/block}}

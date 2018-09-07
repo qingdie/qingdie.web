@@ -1,0 +1,38 @@
+﻿{{block 'title'}}
+<title>表单验证与提交</title>
+{{/block}}
+<div class="page scroll-auto">
+    <form>
+        <div style="padding: 20px">
+            必须输入
+            <div style="height: 80px;">
+                <input class="weui-input" type="text" name="username" required placeholder="请输入用户名">
+            </div>
+            数值范围
+            <div style="height: 80px;">
+                <input class="weui-input" type="number" name="number"  placeholder="请输入5到10之间的数字" min="5" max="10" maxmsg="最大为10">
+            </div>
+            长度范围
+            <div style="height: 80px;">
+                <input class="weui-input" type="number" name="string"  placeholder="请输入4到6位字符" minlength="4" maxlength="6">
+            </div>
+            邮箱
+            <div style="height: 80px;">
+                <input class="weui-input" type="email" name="email"  placeholder="请输入邮箱" value="{{email}}">
+            </div>
+            手机
+            <div style="height: 80px;">
+                <input class="weui-input" type="number" name="mobile" mobile placeholder="请输入手机">
+            </div>
+            电话号码(手机或座机)
+            <div style="height: 80px;">
+                <input class="weui-input" type="number" name="phone" phone placeholder="请输入手机">
+            </div>
+            身份证号码
+            <div style="height: 80px;">
+                <input class="weui-input" type="number" name="idcard" idcard placeholder="请输入身份证号码">
+            </div>
+            <a class="weui-btn weui-btn_primary" bindtap="esubmit">提交表单</a>
+        </div>
+    </form>
+</div>

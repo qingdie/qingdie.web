@@ -1,0 +1,22 @@
+{
+  "name": "h5app",
+  "version": "1.0.0",
+  "description": "qingdie.h5app 1.0",
+  "scripts": {
+    "dev": "node api/dev.js",
+    "prod": "node api/prod.js",
+    "build": "node api/build.js"
+  },
+  "author": "qingdie",
+  "license": "ISC",
+  "dependencies": {
+    "@types/zepto": "^1.0.29",
+    "art-template": "^4.12.2",
+    "co-body": "^6.0.0",
+    "jsdom": "^11.11.0",
+    "koa": "^2.5.1",
+    "koa-send": "^4.1.3",
+    "qingdie-help": "0.0.1",
+    "uglify-js": "2.8.22"
+  }
+}
