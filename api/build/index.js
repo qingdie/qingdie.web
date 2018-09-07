@@ -208,6 +208,7 @@ module.exports = new(function() {
         }
     };
     this.htmldir = async (pages, opt) => {
+        if (pages == '/pages/components' || pages == '/pages/share') return;
         var dirs = fs.readdirSync(this.inroot + pages);
         if (!fs.existsSync(self.outroot + pages)) {
             fs.mkdirSync(self.outroot + pages);

@@ -33,6 +33,7 @@ function pagefilter(html) {
     const dom = new jsdom.JSDOM(ret && ret[0] || html);
     const doc = dom.window.document;
     var c = doc.querySelector(".page");
+    if(!c)throw("页面没有 .page 类");
     var view = c.outerHTML;
     if (ret && ret[0]) {
         html = html.replace(ret[0], doc.body.outerHTML.replace(view, '<page></page>'));
