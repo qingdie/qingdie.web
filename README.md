@@ -39,10 +39,12 @@ $ npm run prod
    /lib/
    存放业务js代码
    /plugin/
+   ~~~ sh
    引入的js文件和框架js
    api.js 辅助方法
    control.js doc模版解析和事件绑定
    router.js 路由
+   ~~~
 ## 配置说明
 ./api/config.js
 ~~~ sh
@@ -77,3 +79,4 @@ $ npm run prod
 - 8.每一个页面文件压缩为一个html文件
 - 9.所有页面的html文件会压缩到/script/html.json里面，在页面第一次加载完成后异步加载，此后，所有页面都从缓存里面读取。
 - 10.整个框架压缩后不到100K，首屏加载的文件只有app.css和app.js两个文件，放页面在50ms内渲染展示完成。
+- 11.每次压缩后都会根据时间戳生成版本号，发布后不会存在缓存问题
