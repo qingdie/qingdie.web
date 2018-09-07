@@ -2,7 +2,8 @@
 
 这是一个非常轻量的单页面框架，仅仅依赖Zepto，路由模块、事件绑定模块，doc模版解析，
 参考、使用了微信小程序和VUE的用法。
-
+体验：
+![c712.keyuxiaoshuo.com](http://s.xtec.site/1CC2028FF619C.png)
 ## Building
 
 clone到本地，然后安装依赖
