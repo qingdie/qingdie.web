@@ -205,13 +205,13 @@ window.control = new(function($) {
         var pnode = node.parentNode;
         var nnode = node.nextSibling;
         _watcherNode(data, attr.value, function(text) {
-            !text || /false|0|null|underfind/.test(text) ? node.parentNode && pnode.removeChild(node) : nnode ? pnode.insertBefore(node, nnode) : pnode.appendChild(node);
+            !text || /^(false|0|null|underfind)$/.test(text) ? node.parentNode && pnode.removeChild(node) : nnode ? pnode.insertBefore(node, nnode) : pnode.appendChild(node);
         });
     }
     var _compileshow = function(node, data, attr) {
         node.style.display = 'none';
         _watcherNode(data, attr.value, function(text) {
-            node.style.display = !text || /false|0|null|underfind/.test(text) ? 'none' : '';
+            node.style.display = !text || /^(false|0|null|underfind)$/.test(text) ? 'none' : '';
         });
     }
     var _compilewx = function(node, data, attr) {
